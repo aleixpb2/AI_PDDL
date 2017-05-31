@@ -45,7 +45,8 @@
 
 )
 
-(:goal ( and (tieneprimero lunes) (tieneprimero martes) (tieneprimero miercoles) (tieneprimero jueves) (tieneprimero viernes) (tienesegundo lunes) (tienesegundo martes) (tienesegundo miercoles) (tienesegundo jueves) (tienesegundo viernes))
+;;(:goal ( and (tieneprimero lunes) (tieneprimero martes) (tieneprimero miercoles) (tieneprimero jueves) (tieneprimero viernes) (tienesegundo lunes) (tienesegundo martes) (tienesegundo miercoles) (tienesegundo jueves) (tienesegundo viernes))
+(:goal ( and (diacompleto lunes) (diacompleto martes) (diacompleto miercoles) (diacompleto jueves) (diacompleto viernes))
 
 )
 
