@@ -22,9 +22,9 @@
 
 
 (:action asignarprimero
-:parameters (?p1 - primero ?d - dia ?p2 - segundo)
+:parameters (?d - dia ?p1 - primero ?p2 - segundo ?ds - dia ?p3 - primero ?t3 - tipo ?t1 - tipo)
 :precondition (and (not (platoasignado ?p1)) (not (tieneprimero ?d)) 
-	(imply ( and (tienesegundo ?d) (asignadosegundo ?p2 ?d)) (not (esincompatible ?p1 ?p2)))
+	(imply (asignadosegundo ?p2 ?d) (not (esincompatible ?p1 ?p2))) (imply (and (diasiguiente ?d ?ds) (asignadoprimero ?p3 ?ds) (esdetipo ?p3 ?t3) (esdetipo ?p1 ?t1)) (not (= ?t1 ?t3)))
 	;;TO-DO: mirar dias consecutivos con mismo tipo plato
 	)
 :effect (and (platoasignado ?p1) (tieneprimero ?d) (asignadoprimero ?p1 ?d));; (imply (tienesegundo ?d) (diacompleto ?d)) )
@@ -32,9 +32,9 @@
 )
 	
 (:action asignarsegundo
-:parameters (?p2 - segundo ?d - dia ?p1 - primero)
+:parameters (?d - dia ?p1 - primero ?p2 - segundo)
 :precondition (and (not (platoasignado ?p2)) (not (tienesegundo ?d)) 
-	(imply ( and (tieneprimero ?d) (asignadoprimero ?p1 ?d)) (not (esincompatible ?p1 ?p2)))
+	(imply (asignadoprimero ?p1 ?d) (not (esincompatible ?p1 ?p2)))
 	;;TO-DO: mirar dias consecutivos con mismo tipo plato
 	)
 :effect (and (platoasignado ?p2) (tienesegundo ?d) (asignadosegundo ?p2 ?d));; (imply (tieneprimero ?d) (diacompleto ?d)))

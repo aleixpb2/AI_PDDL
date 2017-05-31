@@ -8,7 +8,14 @@
 	preci1 - precio
 )
 (:init
+		(esincompatible fideua bistec)
+		(esincompatible fideua langostinos)
 		(esincompatible fideua fabada)
+		(esincompatible fideua salmon)
+		(esincompatible fideua hamburguesa)
+		(esincompatible fideua quiche)
+		(esincompatible fideua tortilla_espinacas)
+		(esincompatible fideua bacalao_con_samfaina)
 		(esincompatible paella langostinos)
 		(esincompatible sopa_pescado salmon)
 		(esincompatible ensalada_alemana albondigas_con_patata)
@@ -20,6 +27,18 @@
 		(diasiguiente miercoles jueves)
 		(diasiguiente jueves viernes)
 		(diasiguiente viernes d0)
+		
+		(esdetipo bistec carne)
+		(esdetipo sopa_pescado sopa)
+		
+		(esdetipo salmon pescado)
+		(esdetipo crema_verduras sopa)
+		
+		;;;
+		(asignadoprimero paella jueves)
+		(tieneprimero jueves)
+		(platoasignado paella)
+		;;;
 		
 		;;; todo : asignar a cada plato su tipo
 
