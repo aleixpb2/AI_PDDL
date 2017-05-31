@@ -1,7 +1,22 @@
+;;TODO : BORRAR TIENE PRIMERO Y tienesegundo
+;; ./ff-metric -o AI_PDDL-master/menus.pddl -f AI_PDDL-master/p1.pddl | grep "CREARMENUDIA"
+;; TODO: jocs de prova. Numeros de precio i calorias realistes
+;; TODO: Comprovar minimize
+
 (define (domain menu)
-(:requirements :typing :strips :adl)
-(:types plato tipo dia calorias precio - object
+(:requirements :typing :strips :adl :fluents)
+(:types plato tipo dia - object
 		primero segundo - plato)
+		
+(:functions
+    (caloriasP ?p - plato)
+    (precioP ?p - plato)
+    (minCal)
+    (maxCal)
+    ;(caloriasDia ?d - dia )
+	(precioTotal)	
+)
+		
 (:predicates
 	(esincompatible ?p1 - primero ?p2 - segundo)
 	(esdetipo ?p - plato ?t - tipo)
@@ -20,25 +35,55 @@
 	(platoasignado ?p - plato)
 )	
 
+(:action crearmenuDia
+:parameters (?d - dia ?p1 - primero ?p2 - segundo)
+:precondition (and 
+        (asignadoprimero ?p1 ?d) 
+        (asignadosegundo ?p2 ?d)
+        (>= (+ (caloriasP ?p1) (caloriasP ?p2)) (minCal))
+        (<= (+ (caloriasP ?p1) (caloriasP ?p2)) (maxCal))
+        )
+:effect ( and (diacompleto ?d)         
+         (increase (precioTotal) (+ (precioP ?p1) (precioP ?p2) ) )
+        )
+)
+
 
 (:action asignarprimero
-:parameters (?d - dia ?p1 - primero ?p2 - segundo) ;;;?ds - dia ?p3 - primero ?t3 - tipo ?t1 - tipo)
-:precondition (and (not (platoasignado ?p1)) (not (tieneprimero ?d)) 
-	(imply (asignadosegundo ?p2 ?d) (not (esincompatible ?p1 ?p2))) ;;(imply (and (diasiguiente ?d ?ds) (asignadoprimero ?p3 ?ds) (esdetipo ?p3 ?t3) (esdetipo ?p1 ?t1)) (not (= ?t1 ?t3)))
-	;;TO-DO: mirar dias consecutivos con mismo tipo plato
+:parameters (?d - dia ?p1 - primero  ?da - dia ?p3 - primero ?t3 - tipo ?t1 - tipo)
+:precondition (and 
+    (not (platoasignado ?p1))
+    (not (tieneprimero ?d)) 
+    (esdetipo ?p1 ?t1)
+    (diasiguiente ?da ?d)
+    (asignadoprimero ?p3 ?da)
+    (esdetipo ?p3 ?t3)
+    (not (= ?t1 ?t3))    
+    
 	)
-:effect (and (platoasignado ?p1) (tieneprimero ?d) (asignadoprimero ?p1 ?d) (when (tienesegundo ?d) (diacompleto ?d) ));; (imply (tienesegundo ?d) (diacompleto ?d)) )
-
+:effect (and (platoasignado ?p1) 
+            (tieneprimero ?d) 
+            (asignadoprimero ?p1 ?d) 
+            
+        )    
 )
 	
 (:action asignarsegundo
-:parameters (?d - dia ?p1 - primero ?p2 - segundo)
-:precondition (and (not (platoasignado ?p2)) (not (tienesegundo ?d)) 
-	(imply (asignadoprimero ?p1 ?d) (not (esincompatible ?p1 ?p2)))
-	;;TO-DO: mirar dias consecutivos con mismo tipo plato
+:parameters (?d - dia ?p1 - primero ?p2 - segundo ?da - dia ?p3 - segundo ?t3 - tipo ?t1 - tipo)
+:precondition (and 
+            (not (platoasignado ?p2)) 
+            (not (tienesegundo ?d)) 
+            (esdetipo ?p1 ?t1)
+            (diasiguiente ?da ?d)
+            (asignadosegundo ?p3 ?da)
+            (esdetipo ?p3 ?t3)
+            (not (= ?t1 ?t3)) 
+            (asignadoprimero ?p1 ?d)
+            (not (esincompatible ?p1 ?p2))
 	)
-:effect (and (platoasignado ?p2) (tienesegundo ?d) (asignadosegundo ?p2 ?d) (when (tieneprimero ?d) (diacompleto ?d) ));; (imply (tieneprimero ?d) (diacompleto ?d)))
-
+:effect (and (platoasignado ?p2) 
+            (tienesegundo ?d) 
+            (asignadosegundo ?p2 ?d)            
+        )
 )
-
 )
