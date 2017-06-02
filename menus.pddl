@@ -20,8 +20,6 @@
 (:predicates
 	(esincompatible ?p1 - primero ?p2 - segundo)
 	(esdetipo ?p - plato ?t - tipo)
-	(tieneprecio ?p - plato ?pr - precio)
-	(tienecal ?p - plato ?c - calorias)
 	(asignadoprimero ?p1 - primero ?d - dia)
 	(asignadosegundo ?p2 - segundo ?d - dia)
 	
