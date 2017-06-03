@@ -13,7 +13,6 @@
     (precioP ?p - plato)
     (minCal)
     (maxCal)
-    ;(caloriasDia ?d - dia )
 	(precioTotal)	
 )
 		
@@ -28,7 +27,7 @@
 	(tieneprimero ?d - dia)
 	(tienesegundo ?d - dia)
 	(diacompleto ?d - dia)
-	(diasiguiente ?d1 - dia ?d2 - dia) ;; dia centinela
+	(diasiguiente ?d1 - dia ?d2 - dia)
 	
 	(platoasignado ?p - plato)
 )	
@@ -45,7 +44,6 @@
          (increase (precioTotal) (+ (precioP ?p1) (precioP ?p2) ) )
         )
 )
-
 
 (:action asignarprimero
 :parameters (?d - dia ?p1 - primero  ?da - dia ?p3 - primero ?t3 - tipo ?t1 - tipo)
@@ -71,13 +69,13 @@
 :precondition (and 
             (not (platoasignado ?p2)) 
             (not (tienesegundo ?d)) 
-            (esdetipo ?p1 ?t1)
+            (esdetipo ?p2 ?t1)
             (diasiguiente ?da ?d)
             (asignadosegundo ?p3 ?da)
             (esdetipo ?p3 ?t3)
             (not (= ?t1 ?t3)) 
             (asignadoprimero ?p1 ?d)
-            (not (esincompatible ?p1 ?p2))
+            (not (esincompatible ?p1 ?p2))            
 	)
 :effect (and (platoasignado ?p2) 
             (tienesegundo ?d) 

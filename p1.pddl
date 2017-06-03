@@ -115,12 +115,12 @@
 		 ( = (maxCal) 1500)
 )
 
-;;(:goal ( and (tieneprimero lunes) (tieneprimero martes) (tieneprimero miercoles) (tieneprimero jueves) (tieneprimero viernes) (tienesegundo lunes) (tienesegundo martes) (tienesegundo miercoles) (tienesegundo jueves) (tienesegundo viernes))
+
 (:goal ( and (diacompleto lunes) (diacompleto martes) (diacompleto miercoles) (diacompleto jueves) (diacompleto viernes)
          )
 )
 
 (:metric minimize (+ (precioTotal lunes) (precioTotal martes) (precioTotal miercoles) (precioTotal jueves) (precioTotal viernes))
-
 )
+
 )    
