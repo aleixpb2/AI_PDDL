@@ -1,5 +1,5 @@
 (define (domain menu)
-(:requirements :typing :strips :adl) ;;;;;;;;;;;;;;;;; ADL?
+(:requirements :typing)
 (:types plato dia - object
 		primero segundo - plato)
 		

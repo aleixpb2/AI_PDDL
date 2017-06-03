@@ -1,8 +1,8 @@
 (define (problem p1) (:domain menu)
 (:objects
     lunes martes miercoles jueves viernes - dia
-	fideua paella sopa_pescado macarrones_bolognesa ensalada canelones risotto crema_verduras ensalada_alemana espinacas platovaciop - primero
-	bistec langostinos albondigas_con_patata fabada salmon hamburguesa quiche tortilla_espinacas bacalao_con_samfaina pizza platovacios - segundo 
+	fideua paella sopa_pescado macarrones_bolognesa ensalada canelones risotto crema_verduras ensalada_alemana espinacas - primero
+	bistec langostinos albondigas_con_patata fabada salmon hamburguesa quiche tortilla_espinacas bacalao_con_samfaina pizza - segundo 
 )
 (:init
 		(esincompatible fideua bistec)
