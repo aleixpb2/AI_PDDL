@@ -120,7 +120,7 @@
          )
 )
 
-(:metric minimize (+ (precioTotal lunes) (precioTotal martes) (precioTotal miercoles) (precioTotal jueves) (precioTotal viernes))
-)
+(:metric minimize (+ (+ (+ (precioTotal lunes) (precioTotal martes)) (+ (precioTotal miercoles) (precioTotal jueves)) )  (precioTotal viernes) )
+) 
 
 )    
