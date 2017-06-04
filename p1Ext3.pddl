@@ -66,6 +66,8 @@
         
 		(asignadoprimero platovaciop d0)
 		(asignadosegundo platovacios d0)
+        (tieneprimero d0)
+        (tienesegundo d0)
 		(platoasignado platovaciop)
 		(platoasignado platovacios)		
 )
