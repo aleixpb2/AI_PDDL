@@ -20,8 +20,9 @@
 		(esincompatible paella salmon)
 		(esincompatible sopa_pescado salmon)
 		(esincompatible ensalada_alemana albondigas_con_patata)
+		(esincompatible canelones bistec)
 		
-        (diasiguiente d0 lunes)
+		(diasiguiente d0 lunes)
 		(diasiguiente lunes martes)
 		(diasiguiente martes miercoles)
 		(diasiguiente miercoles jueves)
@@ -48,25 +49,29 @@
 		(esdetipo quiche pasta)
 		(esdetipo tortilla_espinacas verdura)		
 		(esdetipo bacalao_con_samfaina pescado)
-		(esdetipo pizza pasta)
-		
+		(esdetipo pizza pasta)		
 		
 		(esdetipo platovaciop tipovacio)
 		(esdetipo platovacios tipovacio)
 		
-		; extension 3
+		;; Platos obligados, extension 3
 		(asignadoprimero paella jueves)
 		(tieneprimero jueves)
 		(platoasignado paella)
         
+        (asignadosegundo bistec miercoles)
+		(tienesegundo miercoles)
+		(platoasignado bistec)
+		;;;;;
+        
 		(asignadoprimero platovaciop d0)
 		(asignadosegundo platovacios d0)
 		(platoasignado platovaciop)
-		(platoasignado platovacios)
+		(platoasignado platovacios)		
 )
 
 (:goal ( and (diacompleto lunes) (diacompleto martes) (diacompleto miercoles) (diacompleto jueves) (diacompleto viernes)
          )
 )
 
-)    
+)

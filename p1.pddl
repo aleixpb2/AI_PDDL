@@ -5,8 +5,6 @@
 	bistec langostinos albondigas_con_patata fabada salmon hamburguesa quiche tortilla_espinacas bacalao_con_samfaina pizza platovacios - segundo 
 	
 	sopa estofado carne pescado verdura tipovacio pasta - tipo
-	ca1 - calorias
-	preci1 - precio
 )
 (:init
 		(esincompatible fideua bistec)

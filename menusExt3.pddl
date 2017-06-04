@@ -1,5 +1,5 @@
 (define (domain menu)
-(:requirements :typing)
+(:requirements :typing :adl)
 (:types plato tipo dia - object
 		primero segundo - plato)
 		
@@ -7,12 +7,11 @@
 	(esincompatible ?p1 - primero ?p2 - segundo)
 	(esdetipo ?p - plato ?t - tipo)
 	(asignadoprimero ?p1 - primero ?d - dia)
-	(asignadosegundo ?p2 - segundo ?d - dia)
-			
+	(asignadosegundo ?p2 - segundo ?d - dia)	
+	
 	(tieneprimero ?d - dia)
 	(tienesegundo ?d - dia)
 	(diacompleto ?d - dia)
-    
 	(diasiguiente ?d1 - dia ?d2 - dia)
 	
 	(platoasignado ?p - plato)
@@ -24,11 +23,11 @@
         (asignadoprimero ?p1 ?d) 
         (asignadosegundo ?p2 ?d)
         )
-:effect ( diacompleto ?d)
+:effect (diacompleto ?d)
 )
 
 (:action asignarprimero
-:parameters (?d - dia ?p1 - primero  ?da - dia ?p3 - primero ?t3 - tipo ?t1 - tipo)
+:parameters (?d - dia ?p1 - primero  ?da - dia ?p3 - primero ?t3 - tipo ?t1 - tipo ?p2 - segundo)
 :precondition (and 
     (not (platoasignado ?p1))
     (not (tieneprimero ?d)) 
@@ -37,11 +36,15 @@
     (asignadoprimero ?p3 ?da)
     (esdetipo ?p3 ?t3)
     (not (= ?t1 ?t3))    
+    
+    ; extension 3
+    (imply (tienesegundo ?d) (and (asignadosegundo ?p2 ?d) (not (esincompatible ?p1 ?p2))) )
 	)
 :effect (and (platoasignado ?p1) 
             (tieneprimero ?d) 
-            (asignadoprimero ?p1 ?d)            
-        )
+            (asignadoprimero ?p1 ?d) 
+            
+        )    
 )
 	
 (:action asignarsegundo
@@ -55,7 +58,7 @@
             (esdetipo ?p3 ?t3)
             (not (= ?t1 ?t3)) 
             (asignadoprimero ?p1 ?d)
-            (not (esincompatible ?p1 ?p2))
+            (not (esincompatible ?p1 ?p2))            
 	)
 :effect (and (platoasignado ?p2) 
             (tienesegundo ?d) 
