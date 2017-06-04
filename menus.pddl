@@ -1,10 +1,8 @@
-;;TODO : BORRAR TIENE PRIMERO Y tienesegundo
-;; ./ff-metric -o AI_PDDL-master/menus.pddl -f AI_PDDL-master/p1.pddl | grep "CREARMENUDIA"
-;; TODO: jocs de prova. Numeros de precio i calorias realistes
-;; TODO: Comprovar minimize
+; Ejecucion mas visual:
+; ./ff -O -o AI_PDDL-master/menus.pddl -f AI_PDDL-master/p1.pddl | grep "CREARMENUDIA"
 
 (define (domain menu)
-(:requirements :typing :strips :adl :fluents)
+(:requirements :typing :adl :fluents)
 (:types plato tipo dia - object
 		primero segundo - plato)
 		
@@ -20,9 +18,7 @@
 	(esincompatible ?p1 - primero ?p2 - segundo)
 	(esdetipo ?p - plato ?t - tipo)
 	(asignadoprimero ?p1 - primero ?d - dia)
-	(asignadosegundo ?p2 - segundo ?d - dia)
-	
-	
+	(asignadosegundo ?p2 - segundo ?d - dia)	
 	
 	(tieneprimero ?d - dia)
 	(tienesegundo ?d - dia)
@@ -46,7 +42,7 @@
 )
 
 (:action asignarprimero
-:parameters (?d - dia ?p1 - primero  ?da - dia ?p3 - primero ?t3 - tipo ?t1 - tipo)
+:parameters (?d - dia ?p1 - primero  ?da - dia ?p3 - primero ?t3 - tipo ?t1 - tipo ?p2 - segundo)
 :precondition (and 
     (not (platoasignado ?p1))
     (not (tieneprimero ?d)) 
@@ -56,6 +52,8 @@
     (esdetipo ?p3 ?t3)
     (not (= ?t1 ?t3))    
     
+    ; extension 3
+    (imply (tienesegundo ?d) (and (asignadosegundo ?p2 ?d) (not (esincompatible ?p1 ?p2))) )
 	)
 :effect (and (platoasignado ?p1) 
             (tieneprimero ?d) 
