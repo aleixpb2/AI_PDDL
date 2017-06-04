@@ -3,6 +3,8 @@
 #include <string>
 #include <set>
 #include <random>
+#include <algorithm>
+#include <iterator>
 
 using namespace std;
 
@@ -17,10 +19,33 @@ typedef struct{
 	string p2;
 } incompatibles;
 
-vector<string> dias ("d0", "lunes", "martes", "miercoles", "jueves","viernes");
-vector<string> platosPrimeros ("fideua","paella","sopa_pescado","macarrones_bolognesa","ensalada","canelones","risotto","crema_verduras","ensalada_alemana","espinacas","platovaciop");
-vector<string> platosSegundos ("bistec","langostinos","albondigas_con_patata","fabada","salmon","hamburguesa","quiche","tortilla_espinacas","bacalao_con_samfaina","pizza","platovacios");
-vector<string> tipos ("sopa","estofado","carne","pescado","verdura","pasta","tipovacio");
+vector<string> dias = ("d0", "lunes", "martes", "miercoles", "jueves","viernes");
+
+vector<platos> platosPrimeros = ({"fideua", "pasta"},
+								{"paella","pasta"},
+								{"sopa_pescado","sopa"},
+								{"macarrones_bolognesa","pasta"},
+								{"ensalada","verdura"},
+								{"canelones","pasta"},
+								{"risotto","pasta"},
+								{"crema_verduras","verdura"},
+								{"ensalada_alemana","verdura"},
+								{"espinacas","verdura"},
+								{"platovaciop","tipovacio"} );
+
+vector<platos> platosSegundos = ({"bistec","carne"},
+								{"langostinos","pescado"},
+								{"albondigas_con_patata","carne"},
+								{"fabada","verdura"},
+								{"salmon","pescado"},
+								{"hamburguesa","carne"},
+								{"quiche","pasta"},
+								{"tortilla_espinacas","verdura"},
+								{"bacalao_con_samfaina","pescado"},
+								{"pizza","pasta"},
+								{"platovacios","tipovacio"} );
+								
+vector<string> tipos = ("sopa", "estofado", "carne", "pescado", "verdura", "tipovacio", "pasta");
 
 //void loadPrimeros();
 //void loadSegundos();
@@ -42,9 +67,9 @@ int main (int argc, char* argv[]) {
 	int i = 0;
 	for(i; i < dias.length(); ++i)problema << dias[i] << " ";
 	problema << "- dia\n";
-	for (i=0; i < platosPrimeros.length(); ++i) problema << platosPrimeros[i] << " ";
+	for (i=0; i < platosPrimeros.length(); ++i) problema << platosPrimeros[i].nombre << " ";
 	problema << "- primero\n";
-	for (i=0; i < platosSegundos.length(); ++i) problema << platosSegundos[i] << " ";
+	for (i=0; i < platosSegundos.length(); ++i) problema << platosSegundos[i].nombre << " ";
 	problema << "- segundo\n";
 	for (i=0; i < tipos.length(); ++i) problema << tipos[i] << " ";
 	problema << "- tipo )\n\n"; //Este ultimo ) cierra la seccion Objects!
@@ -84,12 +109,14 @@ int main (int argc, char* argv[]) {
 				bool encontrado = false;
 				
 				for (it; it != incompats.end() and not found; ++it){
-					if (*it.p1 == platosPrimeros[numIndexP1] and *it.p2 == platosSegundos[numIndexP2]) found = true;
+					if (*it.p1.nombre == platosPrimeros[numIndexP1].nombre and *it.p2.nombre == platosSegundos[numIndexP2].nombre) found = true;
 				}
 				
 				if (not found) {
-					in.p1 = platosPrimeros[numIndexP1];
-					in.p2 = platosSegundos[numIndexP2];
+					in.p1.nombre = platosPrimeros[numIndexP1].nombre;
+					in.p2.nombre = platosSegundos[numIndexP2].nombre;
+					in.p1.tipo = platosPrimeros[numIndexP1].tipo;
+					in.p2.tipo = platosSegundos[numIndexP2].tipo;
 					asignado = true;
 				}
 				else numIndexP2 = distSegundos(gen);	
@@ -97,16 +124,19 @@ int main (int argc, char* argv[]) {
 			
 		}
 		else {
-			in.p1 = platosPrimeros[numIndexP1];
-			in.p2 = platosSegundos[numIndexP2];
+			in.p1.nombre = platosPrimeros[numIndexP1].nombre;
+			in.p2.nombre = platosSegundos[numIndexP2].nombre;
+			in.p1.tipo = platosPrimeros[numIndexP1].tipo;
+			in.p2.tipo = platosSegundos[numIndexP2].tipo;
+			asignado = true;
 		}
 		incompats.insert(in);
-		cout << in.p1 << " " << in.p2 << " has been inserted into the set.\n";
+		cout << in.p1.nombre << " con tipo " << in.p1.tipo << " es incompatible con " << in.p2.nombre << " con tipo " << in.p2.tipo << " y se ha insertado en el set\n";
 	}
 	
 	//Guardado en fichero de las incompatibilidades
 	set<incompatibles>::iterator its = incompats.begin();
-	for (its; its != incompats.end(); ++its) problema << "(esincompatible " << *its.p1 << " " << *its.p2 << ")\n";
+	for (its; its != incompats.end(); ++its) problema << "(esincompatible " << *its.p1.nombre << " " << *its.p2.nombre << ")\n";
 	problema << "\n";
 	
 	//Genereacion de la secuencia de dias
@@ -117,12 +147,13 @@ int main (int argc, char* argv[]) {
 	}
 	
 	//Generacion de los tipos de los platos
+	for (i = 0; i < platosPrimeros.length(); ++i) problema << "(esdetipo " << platosPrimeros[i].nombre << " " << platosPrimeros[i].tipo << ")\n";
+	
+	for (i = 0; i < platosSegundos.length(); ++i) problema << "(esdetipo " << platosSegundos[i].nombre << " " << platosSegundos[i].tipo << ")\n";
 	
 	//Extensiones
 	
 	//Asignacion de platos vacios y dia centinela
-	problema << "(esdetipo platovaciop tipovacio)\n";
-	problema << "(esdetipo platovacios tipovacio)\n";
 	problema << "(asignadoprimero platovaciop d0)\n";
 	problema << "(asignadosegundo platovacios d0)\n";
 	problema << "(platoasignado platovaciop)\n";
