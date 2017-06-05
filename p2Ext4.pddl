@@ -73,14 +73,14 @@
          ; extension 4
 		 (= (caloriasP fideua) 700) 
 		 (= (caloriasP paella) 900) 
-		 (= (caloriasP sopa_pescado) 500) 
+		 ;(= (caloriasP sopa_pescado) 500) 
 		 (= (caloriasP macarrones_bolognesa) 500) 
 		 (= (caloriasP ensalada) 400) 
 		 (= (caloriasP canelones) 700) 
 		 (= (caloriasP risotto) 600) 
 		 (= (caloriasP crema_verduras) 400) 
 		 (= (caloriasP ensalada_alemana) 450) 
-		 (= (caloriasP espinacas) 500) 
+		 ;(= (caloriasP espinacas) 500) 
 		 (= (caloriasP langostinos) 650) 
 		 (= (caloriasP albondigas_con_patata) 800) 
 		 (= (caloriasP bistec) 850) 
@@ -90,7 +90,13 @@
 		 (= (caloriasP hamburguesa) 750) 
 		 (= (caloriasP tortilla_espinacas) 600) 
 		 (= (caloriasP bacalao_con_samfaina) 700) 
-		 (= (caloriasP pizza) 500)
+		 ;(= (caloriasP pizza) 500)
+         
+         ; añadido
+         (= (caloriasP espinacas) 100) 
+         (= (caloriasP sopa_pescado) 0) 
+         (= (caloriasP pizza) 1450)
+
 		 
 		 ( = (minCal) 1000)
 		 ( = (maxCal) 1500)

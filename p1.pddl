@@ -58,9 +58,9 @@
 		(tieneprimero jueves)
 		(platoasignado paella)
         
-        (asignadosegundo bistec miercoles)
-		(tienesegundo miercoles)
-		(platoasignado bistec)
+        (asignadosegundo hamburguesa martes)
+		(tienesegundo martes)
+		(platoasignado hamburguesa)
 		;;;;;
         
 		(asignadoprimero platovaciop d0)
