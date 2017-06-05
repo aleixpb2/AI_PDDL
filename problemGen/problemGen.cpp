@@ -21,11 +21,11 @@ struct incompatibles{
 	platos p2;
     
     bool operator<(const incompatibles& rhs) const{
-        return p1.nombre < rhs.nombre;
+        return p1.nombre < rhs.p1.nombre;
     }
     
     bool operator==(const incompatibles& rhs) const{
-        return p1.nombre == rhs.nombre;
+        return p1.nombre == rhs.p1.nombre;
     }
 };
 
