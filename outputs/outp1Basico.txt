@@ -1,0 +1,60 @@
+
+ff: parsing domain file
+domain 'MENU' defined
+ ... done.
+ff: parsing problem file
+problem 'P1' defined
+ ... done.
+
+
+no metric specified. plan length assumed.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+advancing to distance:   15
+                         14
+                         13
+                         12
+                         11
+                         10
+                          9
+                          8
+                          7
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: ASIGNARPRIMERO VIERNES FIDEUA
+        1: ASIGNARSEGUNDO VIERNES FIDEUA ALBONDIGAS_CON_PATATA
+        2: CREARMENUDIA VIERNES FIDEUA ALBONDIGAS_CON_PATATA
+        3: ASIGNARPRIMERO JUEVES FIDEUA
+        4: ASIGNARSEGUNDO JUEVES FIDEUA ALBONDIGAS_CON_PATATA
+        5: CREARMENUDIA JUEVES FIDEUA ALBONDIGAS_CON_PATATA
+        6: ASIGNARPRIMERO MIERCOLES FIDEUA
+        7: ASIGNARSEGUNDO MIERCOLES FIDEUA ALBONDIGAS_CON_PATATA
+        8: CREARMENUDIA MIERCOLES FIDEUA ALBONDIGAS_CON_PATATA
+        9: ASIGNARPRIMERO MARTES FIDEUA
+       10: ASIGNARSEGUNDO MARTES FIDEUA ALBONDIGAS_CON_PATATA
+       11: CREARMENUDIA MARTES FIDEUA ALBONDIGAS_CON_PATATA
+       12: ASIGNARPRIMERO LUNES FIDEUA
+       13: ASIGNARSEGUNDO LUNES FIDEUA ALBONDIGAS_CON_PATATA
+       14: CREARMENUDIA LUNES FIDEUA ALBONDIGAS_CON_PATATA
+     
+
+time spent:    0.00 seconds instantiating 990 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 125 facts and 990 actions
+               0.00 seconds creating final representation with 125 relevant facts, 0 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 366 states, to a max depth of 0
+               0.00 seconds total time
+
