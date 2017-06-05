@@ -1,0 +1,59 @@
+
+ff: parsing domain file
+domain 'MENU' defined
+ ... done.
+ff: parsing problem file
+problem 'P1' defined
+ ... done.
+
+
+no metric specified. plan length assumed.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+advancing to distance:   30
+                         23
+                         21
+                         20
+                         16
+                         13
+                         10
+                          8
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: ASIGNARPRIMERO LUNES FIDEUA D0 PLATOVACIOP TIPOVACIO PASTA
+        1: ASIGNARSEGUNDO LUNES FIDEUA ALBONDIGAS_CON_PATATA D0 PLATOVACIOS TIPOVACIO CARNE
+        2: CREARMENUDIA LUNES FIDEUA ALBONDIGAS_CON_PATATA
+        3: ASIGNARPRIMERO MARTES SOPA_PESCADO LUNES FIDEUA PASTA SOPA
+        4: ASIGNARPRIMERO MIERCOLES RISOTTO MARTES SOPA_PESCADO SOPA VERDURA
+        5: ASIGNARSEGUNDO MARTES SOPA_PESCADO LANGOSTINOS LUNES ALBONDIGAS_CON_PATATA CARNE PESCADO
+        6: ASIGNARSEGUNDO MIERCOLES RISOTTO BISTEC MARTES LANGOSTINOS PESCADO CARNE
+        7: ASIGNARPRIMERO JUEVES CANELONES MIERCOLES RISOTTO VERDURA PASTA
+        8: ASIGNARSEGUNDO JUEVES CANELONES FABADA MIERCOLES BISTEC CARNE VERDURA
+        9: CREARMENUDIA JUEVES CANELONES FABADA
+       10: ASIGNARPRIMERO VIERNES ESPINACAS JUEVES CANELONES PASTA VERDURA
+       11: ASIGNARSEGUNDO VIERNES ESPINACAS SALMON JUEVES FABADA VERDURA PESCADO
+       12: CREARMENUDIA VIERNES ESPINACAS SALMON
+       13: CREARMENUDIA MIERCOLES RISOTTO BISTEC
+       14: CREARMENUDIA MARTES SOPA_PESCADO LANGOSTINOS
+     
+
+time spent:    0.01 seconds instantiating 6552 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 172 facts and 3291 actions
+               0.00 seconds creating final representation with 166 relevant facts, 0 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.02 seconds searching, evaluating 125 states, to a max depth of 0
+               0.03 seconds total time
+

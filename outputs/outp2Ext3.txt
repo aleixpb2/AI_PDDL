@@ -1,0 +1,56 @@
+
+ff: parsing domain file
+domain 'MENU' defined
+ ... done.
+ff: parsing problem file
+problem 'P1' defined
+ ... done.
+
+
+no metric specified. plan length assumed.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+advancing to distance:   18
+                         15
+                         12
+                         11
+                         10
+                          9
+                          7
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: ASIGNARPRIMERO LUNES ENSALADA D0 PLATOVACIOP TIPOVACIO VERDURA PLATOVACIOS
+        1: ASIGNARSEGUNDO LUNES ENSALADA PIZZA D0 PLATOVACIOS TIPOVACIO PASTA
+        2: CREARMENUDIA LUNES ENSALADA PIZZA
+        3: ASIGNARPRIMERO MARTES SOPA_PESCADO LUNES ENSALADA VERDURA SOPA HAMBURGUESA
+        4: ASIGNARPRIMERO MIERCOLES MACARRONES_BOLOGNESA MARTES SOPA_PESCADO SOPA PASTA PLATOVACIOS
+        5: ASIGNARSEGUNDO MIERCOLES MACARRONES_BOLOGNESA LANGOSTINOS MARTES HAMBURGUESA CARNE PESCADO
+        6: CREARMENUDIA MIERCOLES MACARRONES_BOLOGNESA LANGOSTINOS
+        7: ASIGNARSEGUNDO JUEVES PAELLA BISTEC MIERCOLES LANGOSTINOS PESCADO CARNE
+        8: CREARMENUDIA JUEVES PAELLA BISTEC
+        9: CREARMENUDIA MARTES SOPA_PESCADO HAMBURGUESA
+       10: ASIGNARPRIMERO VIERNES CREMA_VERDURAS JUEVES PAELLA PASTA VERDURA PLATOVACIOS
+       11: ASIGNARSEGUNDO VIERNES CREMA_VERDURAS FABADA JUEVES BISTEC CARNE VERDURA
+       12: CREARMENUDIA VIERNES CREMA_VERDURAS FABADA
+     
+
+time spent:    0.62 seconds instantiating 6288 easy, 4490 hard action templates
+               0.00 seconds reachability analysis, yielding 133 facts and 1647 actions
+               0.00 seconds creating final representation with 121 relevant facts, 0 relevant fluents
+               0.01 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 130 states, to a max depth of 0
+               0.63 seconds total time
+
