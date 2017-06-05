@@ -19,6 +19,14 @@ struct platos{
 struct incompatibles{
 	platos p1;
 	platos p2;
+    
+    bool operator<(const incompatibles& rhs) const{
+        return p1.nombre < rhs.nombre;
+    }
+    
+    bool operator==(const incompatibles& rhs) const{
+        return p1.nombre == rhs.nombre;
+    }
 };
 
 ifstream entrada;
@@ -212,18 +220,18 @@ int main (int argc, char* argv[]) {
 	
 	//Asignacion de calorias a los platos
 	for (i = 0; i < platosPrimeros.size(); ++i) {
-		if (platosPrimeros[i].nombre != platovaciop){
+		if (platosPrimeros[i].nombre != "platovaciop"){
 			problema << "(= (caloriasP " << platosPrimeros[i].nombre << ") " << platosPrimeros[i].calorias << ")\n";
 		}
 	}
 	for (i = 0; i < platosSegundos.size(); ++i) {
-		if (platosSegundos[i].nombre != platovacios){
+		if (platosSegundos[i].nombre != "platovacios"){
 			problema << "(= (caloriasP " << platosSegundos[i].nombre << ") " << platosSegundos[i].calorias << ")\n";
 		}
 	}
 	
 	//Restriccion de calorias maximas y minimas
-	problema << "( = (minCal) 1000)\n"
+	problema << "( = (minCal) 1000)\n";
 	problema << "( = (maxCal) 1500))\n\n"; //Este ultimo ) cierra la seccion init!
 	
 //Goal
