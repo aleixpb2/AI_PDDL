@@ -1,0 +1,60 @@
+
+ff: parsing domain file
+domain 'MENU' defined
+ ... done.
+ff: parsing problem file
+problem 'P1' defined
+ ... done.
+
+
+no metric specified. plan length assumed.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+advancing to distance:   15
+                         14
+                         13
+                         12
+                         11
+                         10
+                          9
+                          8
+                          7
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: ASIGNARPRIMERO LUNES ESPINACAS
+        1: ASIGNARSEGUNDO LUNES ESPINACAS BISTEC
+        2: CREARMENUDIA LUNES ESPINACAS BISTEC
+        3: ASIGNARPRIMERO MARTES ENSALADA_ALEMANA
+        4: ASIGNARSEGUNDO MARTES ENSALADA_ALEMANA LANGOSTINOS
+        5: CREARMENUDIA MARTES ENSALADA_ALEMANA LANGOSTINOS
+        6: ASIGNARPRIMERO MIERCOLES CREMA_VERDURAS
+        7: ASIGNARSEGUNDO MIERCOLES CREMA_VERDURAS ALBONDIGAS_CON_PATATA
+        8: CREARMENUDIA MIERCOLES CREMA_VERDURAS ALBONDIGAS_CON_PATATA
+        9: ASIGNARPRIMERO JUEVES RISOTTO
+       10: ASIGNARSEGUNDO JUEVES RISOTTO SALMON
+       11: CREARMENUDIA JUEVES RISOTTO SALMON
+       12: ASIGNARPRIMERO VIERNES CANELONES
+       13: ASIGNARSEGUNDO VIERNES CANELONES FABADA
+       14: CREARMENUDIA VIERNES CANELONES FABADA
+     
+
+time spent:    0.00 seconds instantiating 980 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 165 facts and 980 actions
+               0.00 seconds creating final representation with 165 relevant facts, 0 relevant fluents
+               0.01 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 334 states, to a max depth of 0
+               0.01 seconds total time
+
