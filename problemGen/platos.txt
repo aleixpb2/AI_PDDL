@@ -1,0 +1,31 @@
+-dias
+d0
+lunes
+martes
+miercoles
+jueves
+viernes
+-primeros
+fideua pasta
+paella pasta
+sopa_pescado sopa
+macarrones_bolognesa pasta
+ensalada verdura
+canelones pasta
+risotto pasta
+crema_verduras verdura
+ensalada_alemana verdura
+espinacas verdura
+platovaciop tipovacio
+-segundos
+bistec carne
+langostinos pescado
+albondigas_con_patata carne
+fabada verdura
+salmon pescado
+hamburguesa carne
+quiche pasta
+tortilla_espinacas verdura
+bacalao_con_samfaina pescado
+pizza pasta
+platovacios tipovacio
