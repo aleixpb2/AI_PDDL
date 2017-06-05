@@ -13,6 +13,7 @@ struct platos{
 	
 	string nombre;
 	string tipo;
+	int calorias;
 };
 
 struct incompatibles{
@@ -53,6 +54,8 @@ void loadPlatos(vector<platos> &pp1, vector<platos> &pp2, vector<string> &ts, ve
                 p.nombre = palabra;
                 input >> palabra;
                 p.tipo = palabra;
+				input >> palabra;
+				p.calorias = stoi(palabra);
                 pp1.push_back(p);
                 break;
                 
@@ -61,6 +64,8 @@ void loadPlatos(vector<platos> &pp1, vector<platos> &pp2, vector<string> &ts, ve
                 p.nombre = palabra;
                 input >> palabra;
                 p.tipo = palabra;
+				input >> palabra;
+				p.calorias = stoi(palabra);
                 pp2.push_back(p);
                 break;
                 
@@ -68,9 +73,7 @@ void loadPlatos(vector<platos> &pp1, vector<platos> &pp2, vector<string> &ts, ve
                 d.push_back(temp);
                 break;
         }
-        
     }
-    
 }
 
 
@@ -198,12 +201,30 @@ int main (int argc, char* argv[]) {
 	for (i = 0; i < platosSegundos.size(); ++i) problema << "(esdetipo " << platosSegundos[i].nombre << " " << platosSegundos[i].tipo << ")\n";
 	
 	//Extensiones
+		//TO-DO: Platos obligados en dia
+		
 	
 	//Asignacion de platos vacios y dia centinela
 	problema << "(asignadoprimero platovaciop d0)\n";
 	problema << "(asignadosegundo platovacios d0)\n";
 	problema << "(platoasignado platovaciop)\n";
-	problema << "(platoasignado platovacios))\n"; //Este ultimo ) cierra la seccion init!
+	problema << "(platoasignado platovacios)\n\n";
+	
+	//Asignacion de calorias a los platos
+	for (i = 0; i < platosPrimeros.size(); ++i) {
+		if (platosPrimeros[i].nombre != platovaciop){
+			problema << "(= (caloriasP " << platosPrimeros[i].nombre << ") " << platosPrimeros[i].calorias << ")\n";
+		}
+	}
+	for (i = 0; i < platosSegundos.size(); ++i) {
+		if (platosSegundos[i].nombre != platovacios){
+			problema << "(= (caloriasP " << platosSegundos[i].nombre << ") " << platosSegundos[i].calorias << ")\n";
+		}
+	}
+	
+	//Restriccion de calorias maximas y minimas
+	problema << "( = (minCal) 1000)\n"
+	problema << "( = (maxCal) 1500))\n\n"; //Este ultimo ) cierra la seccion init!
 	
 //Goal
 	//Objetivo del problema -> conseguir que todos los dias tengan un menu asignado

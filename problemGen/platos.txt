@@ -6,26 +6,26 @@ miercoles
 jueves
 viernes
 -primeros
-fideua pasta
-paella pasta
-sopa_pescado sopa
-macarrones_bolognesa pasta
-ensalada verdura
-canelones pasta
-risotto pasta
-crema_verduras verdura
-ensalada_alemana verdura
-espinacas verdura
-platovaciop tipovacio
+fideua pasta 700
+paella pasta 900
+sopa_pescado sopa 500
+macarrones_bolognesa pasta 500
+ensalada verdura 400
+canelones pasta 700
+risotto pasta 600
+crema_verduras verdura 400
+ensalada_alemana verdura 450
+espinacas verdura 500
+platovaciop tipovacio 0
 -segundos
-bistec carne
-langostinos pescado
-albondigas_con_patata carne
-fabada verdura
-salmon pescado
-hamburguesa carne
-quiche pasta
-tortilla_espinacas verdura
-bacalao_con_samfaina pescado
-pizza pasta
-platovacios tipovacio
+bistec carne 850
+langostinos pescado 650
+albondigas_con_patata carne 800
+fabada verdura 900
+salmon pescado 450
+hamburguesa carne 750
+quiche pasta 450
+tortilla_espinacas verdura 600
+bacalao_con_samfaina pescado 700
+pizza pasta 500
+platovacios tipovacio 0
