@@ -1,18 +1,13 @@
-; Ejecucion mas visual:
-; ./ff -O -o AI_PDDL-master/menus.pddl -f AI_PDDL-master/p1.pddl | grep "CREARMENUDIA"
-
 (define (domain menu)
 (:requirements :typing :adl :fluents)
 (:types plato tipo dia - object
 		primero segundo - plato)
 		
-; precio para la extension 5
+; fluents para la extension 4
 (:functions
     (caloriasP ?p - plato)
-    (precioP ?p - plato)
     (minCal)
     (maxCal)
-	(precioTotal)	
 )
 		
 (:predicates
@@ -34,13 +29,11 @@
 :precondition (and 
         (asignadoprimero ?p1 ?d) 
         (asignadosegundo ?p2 ?d)
+        ; extension 4
         (>= (+ (caloriasP ?p1) (caloriasP ?p2)) (minCal))
         (<= (+ (caloriasP ?p1) (caloriasP ?p2)) (maxCal))
         )
-:effect ( and (diacompleto ?d)
-         ; extension 5
-         (increase (precioTotal) (+ (precioP ?p1) (precioP ?p2) ) )
-        )
+:effect(diacompleto ?d)
 )
 
 (:action asignarprimero

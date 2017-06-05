@@ -68,31 +68,9 @@
         (tieneprimero d0)
         (tienesegundo d0)
 		(platoasignado platovaciop)
-		(platoasignado platovacios)
-		
-		 ; extension 5
-		 (= (precioP fideua) 7) 
-		 (= (precioP paella) 20) 
-		 (= (precioP sopa_pescado) 6) 
-		 (= (precioP macarrones_bolognesa) 7) 
-		 (= (precioP ensalada) 5) 
-		 (= (precioP canelones) 10) 
-		 (= (precioP risotto) 8) 
-		 (= (precioP crema_verduras) 6) 
-		 (= (precioP ensalada_alemana) 6) 
-		 (= (precioP espinacas) 9) 
-		 (= (precioP langostinos) 15) 
-		 (= (precioP albondigas_con_patata) 12) 
-		 (= (precioP bistec) 17) 
-		 (= (precioP fabada) 10) 
-		 (= (precioP salmon) 11) 
-		 (= (precioP quiche) 7) 
-		 (= (precioP hamburguesa) 12) 
-		 (= (precioP tortilla_espinacas) 10) 
-		 (= (precioP bacalao_con_samfaina) 11) 
-		 (= (precioP pizza) 7)		 
+		(platoasignado platovacios)			 
 		 
-		 
+         ; extension 4
 		 (= (caloriasP fideua) 700) 
 		 (= (caloriasP paella) 900) 
 		 (= (caloriasP sopa_pescado) 500) 
@@ -114,8 +92,6 @@
 		 (= (caloriasP bacalao_con_samfaina) 700) 
 		 (= (caloriasP pizza) 500)
 		 
-         ; inicializacion extension 5
-		 ( = (precioTotal) 0)
 		 ( = (minCal) 1000)
 		 ( = (maxCal) 1500)
 )
@@ -123,8 +99,5 @@
 (:goal ( and (diacompleto lunes) (diacompleto martes) (diacompleto miercoles) (diacompleto jueves) (diacompleto viernes)
          )
 )
-
-; extension 5
-(:metric minimize (precioTotal) ) 
 
 )
